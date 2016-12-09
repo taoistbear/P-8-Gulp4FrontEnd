@@ -18,37 +18,41 @@ var gulp = require('gulp'),
 
 // Script Concatenation
 
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', function() {
   return gulp.src([
                   'js/circle/autogrow.js',
                   'js/circle/circle.js'])
              .pipe(concat('global.js'))
              .pipe(gulp.dest('js'))
+             // Sourcemap Init
+             .pipe(maps.init())
              // Script Minification
              .pipe(uglify())
              .pipe(rename('all.min.js'))
+             // Sourcemap Write
+             .pipe(maps.write('./'))
              // Scripts sent to 'dist/scripts folder'
              .pipe(gulp.dest('dist/scripts'));
 });
 
 // Compile sass
 
-gulp.task('styles', ['clean'], function() {
+gulp.task('styles', function() {
   return gulp.src('sass/global.scss')
              .pipe(sass({outputStyle: 'compressed'}))
+             // Sourcemap Init
+             .pipe(maps.init())
              .pipe(rename('all.min.css'))
+             // Sourcemap Write
+             .pipe(maps.write('./'))
              // Sass sent to 'dist/styles' foler
-             .pipe(gulp.dest('dist/sytles'))
+             .pipe(gulp.dest('dist/sytles'));
 });
-
-
-
-
 
 // Clean Output before a task
 
 gulp.task('clean', function() {
-  del(['js/global.js', 'dist']);
+  del('dist');
 });
 
 //******************************************************************************
