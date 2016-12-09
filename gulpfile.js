@@ -10,6 +10,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     maps = require('gulp-sourcemaps'),
+imagemin = require('gulp-imagemin'),
      del = require('del');
 
 //******************************************************************************
@@ -35,7 +36,7 @@ gulp.task('scripts', function() {
              .pipe(gulp.dest('dist/scripts'));
 });
 
-// Compile sass
+// Compile Sass
 
 gulp.task('styles', function() {
   return gulp.src('sass/global.scss')
@@ -49,7 +50,15 @@ gulp.task('styles', function() {
              .pipe(gulp.dest('dist/sytles'));
 });
 
-// Clean Output before a task
+// Minify Image files
+
+gulp.task('images', function() {
+  return gulp.src(['images/*.jpg', 'images/*.png'])
+             .pipe(imagemin())
+             .pipe(gulp.dest('dist/images'));
+});
+
+// Clean output before a task
 
 gulp.task('clean', function() {
   del('dist');
