@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     maps = require('gulp-sourcemaps'),
 imagemin = require('gulp-imagemin'),
-     del = require('del');
+     del = require('del'),
+  eslint = require('gulp-eslint');
 
 //******************************************************************************
 // Task Runners
@@ -19,7 +20,7 @@ imagemin = require('gulp-imagemin'),
 
 // Script Concatenation
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () =>  {
   return gulp.src([
                   'js/circle/autogrow.js',
                   'js/circle/circle.js'])
@@ -38,7 +39,7 @@ gulp.task('scripts', function() {
 
 // Compile Sass
 
-gulp.task('styles', function() {
+gulp.task('styles', () =>  {
   return gulp.src('sass/global.scss')
              .pipe(sass({outputStyle: 'compressed'}))
              // Sourcemap Init
@@ -52,7 +53,7 @@ gulp.task('styles', function() {
 
 // Minify Image files
 
-gulp.task('images', function() {
+gulp.task('images', () =>  {
   return gulp.src(['images/*.jpg', 'images/*.png'])
              .pipe(imagemin())
              .pipe(gulp.dest('dist/images'));
@@ -60,16 +61,31 @@ gulp.task('images', function() {
 
 // Clean output before a task
 
-gulp.task('clean', function() {
+gulp.task('clean', () =>  {
   del('dist');
+});
+
+// ESLint
+
+gulp.task('lint', ['scripts'], () => {
+  return gulp.src('js/global.js')
+             .pipe(eslint())
+             .pipe(eslint.result(result => {
+                  // Called for each ESLint result.
+                  console.log(`ESLint result: ${result.filePath}`);
+                  console.log(`# Messages: ${result.messages.length}`);
+                  console.log(`# Warnings: ${result.warningCount}`);
+                  console.log(`# Errors: ${result.errorCount}`);
+              }));
 });
 
 // Build Command
 
-gulp.task('build', ['scripts', 'styles', 'images'], function() {
+gulp.task('build', ['lint', 'styles', 'images'], function() {
   return gulp.src('index.html')
              .pipe(gulp.dest('dist'));
 })
+
 
 //******************************************************************************
 // Default Gulp CMD

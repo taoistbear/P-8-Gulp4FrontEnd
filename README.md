@@ -14,4 +14,4 @@
 - [X] :nut_and_bolt: As a developer, I should be able to run the gulp command at the command line to run the “build” task.
 
 ## :beer: **Extra Credit**
-- [ ] :100: As a developer, when I run the gulp scripts command at the command line, all of my project’s JavaScript files will be linted using ESLint and if there’s an error, the error will output to the console and the build process will be halted.
+- [X] :100: As a developer, when I run the gulp scripts command at the command line, all of my project’s JavaScript files will be linted using ESLint and if there’s an error, the error will output to the console and the build process will be halted.
