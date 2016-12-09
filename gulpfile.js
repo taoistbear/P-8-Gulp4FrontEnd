@@ -28,14 +28,19 @@ gulp.task('concatScripts', ['clean'], function() {
 
 // Script Minification
 
-
+gulp.task('scripts', ['concatScripts'], function() {
+  return gulp.src('js/global.js')
+             .pipe(uglify())
+             .pipe(rename('all.min.js'))
+             .pipe(gulp.dest('dist/scripts'))
+});
 
 // Scripts sent to 'dist/scripts folder'
 
 // Clean Output before a task
 
 gulp.task('clean', function() {
-  del('js/global.js');
+  del('js/global.js', 'dist');
 });
 
 //******************************************************************************
