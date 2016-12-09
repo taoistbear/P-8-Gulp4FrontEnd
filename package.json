@@ -1,0 +1,30 @@
+{
+  "name": "gulp_frontend_website",
+  "version": "0.0.1",
+  "description": "Project for Treehouse.com Full-Stack JavaScript Techdegree: Bulding a front end website with Gulp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoistbear/P-8-Gulp4FrontEnd.git"
+  },
+  "keywords": [
+    "Treehouse",
+    "JavaScript",
+    "Gulp",
+    "Front",
+    "End",
+    "Techdegree"
+  ],
+  "author": "Josh Kelly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taoistbear/P-8-Gulp4FrontEnd/issues"
+  },
+  "homepage": "https://github.com/taoistbear/P-8-Gulp4FrontEnd#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
