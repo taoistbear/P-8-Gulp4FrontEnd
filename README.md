@@ -4,7 +4,7 @@
 **This project instruction sheet is proprietary to Treehouse.com Full-Stack JavaScript Techdegree.  This README will be delteted after project completion.**
 
 ## :clipboard: Project Instructions
-- [ ] :nut_and_bolt: As a developer, I should be able to run the npm install command to install all of the dependencies for the build process.
+- [X] :ok_hand: As a developer, I should be able to run the npm install command to install all of the dependencies for the build process.
 - [ ] :nut_and_bolt: As a developer, I should be able to run the gulp scripts command at the command line to concatenate, minify, and copy all of the project’s JavaScript files into an all.min.js file that is then copied to the dist/scripts folder.
 - [ ] :nut_and_bolt: As a developer, I should be able to run the gulp styles command at the command line to compile the project’s SCSS files into CSS, then concatenate and minify into an all.min.css file that is then copied to the dist/styles folder.
 - [ ] :nut_and_bolt: As a developer, when I run the gulp scripts or gulp styles commands at the command line, source maps are generated for the JavaScript and CSS files respectively.
