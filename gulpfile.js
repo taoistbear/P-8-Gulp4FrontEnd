@@ -33,7 +33,17 @@ gulp.task('scripts', ['clean'], function() {
 
 // Compile sass
 
-// Sass Minification
+gulp.task('styles', ['clean'], function() {
+  return gulp.src('sass/global.scss')
+             .pipe(sass({outputStyle: 'compressed'}))
+             .pipe(rename('all.min.css'))
+             // Sass sent to 'dist/styles' foler
+             .pipe(gulp.dest('dist/sytles'))
+});
+
+
+
+
 
 // Clean Output before a task
 
