@@ -64,8 +64,17 @@ gulp.task('clean', function() {
   del('dist');
 });
 
+// Build Command
+
+gulp.task('build', ['scripts', 'styles', 'images'], function() {
+  return gulp.src('index.html')
+             .pipe(gulp.dest('dist'));
+})
+
 //******************************************************************************
 // Default Gulp CMD
 //******************************************************************************
 
-gulp.task('default');
+gulp.task('default', ['clean'], function() {
+  gulp.start('build');
+});
