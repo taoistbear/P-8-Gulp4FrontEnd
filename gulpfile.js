@@ -18,29 +18,27 @@ var gulp = require('gulp'),
 
 // Script Concatenation
 
-gulp.task('concatScripts', ['clean'], function() {
+gulp.task('scripts', ['clean'], function() {
   return gulp.src([
                   'js/circle/autogrow.js',
                   'js/circle/circle.js'])
              .pipe(concat('global.js'))
-             .pipe(gulp.dest('js'));
-});
-
-// Script Minification
-
-gulp.task('scripts', ['concatScripts'], function() {
-  return gulp.src('js/global.js')
+             .pipe(gulp.dest('js'))
+             // Script Minification
              .pipe(uglify())
              .pipe(rename('all.min.js'))
-             .pipe(gulp.dest('dist/scripts'))
+             // Scripts sent to 'dist/scripts folder'
+             .pipe(gulp.dest('dist/scripts'));
 });
 
-// Scripts sent to 'dist/scripts folder'
+// Compile sass
+
+// Sass Minification
 
 // Clean Output before a task
 
 gulp.task('clean', function() {
-  del('js/global.js', 'dist');
+  del(['js/global.js', 'dist']);
 });
 
 //******************************************************************************
