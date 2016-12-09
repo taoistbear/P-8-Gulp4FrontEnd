@@ -11,7 +11,7 @@
 - [X] :ok_hand: As a developer, I should be able to run the gulp images command at the command line to optimize the size of the project’s JPEG and PNG files, and then copy those optimized images to the dist/content folder.
 - [X] :ok_hand: As a developer, I should be able to run the gulp clean command at the command line to delete all of the files and folders in the dist folder.
 - [X] :ok_hand: As a developer, I should be able to run the gulp build command at the command line to run the clean, scripts, styles, and images tasks with confidence that the clean task completes before the other commands.
-- [X] :nut_and_bolt: As a developer, I should be able to run the gulp command at the command line to run the “build” task.
+- [X] :ok_hand: As a developer, I should be able to run the gulp command at the command line to run the “build” task.
 
 ## :beer: **Extra Credit**
-- [X] :100: As a developer, when I run the gulp scripts command at the command line, all of my project’s JavaScript files will be linted using ESLint and if there’s an error, the error will output to the console and the build process will be halted.
+- [X] :ok_hand: As a developer, when I run the gulp scripts command at the command line, all of my project’s JavaScript files will be linted using ESLint and if there’s an error, the error will output to the console and the build process will be halted.
